@@ -1,0 +1,147 @@
+body {
+   height: 100px;
+}
+
+#head {
+   background: linear-gradient(to bottom, black, transparent);
+   height: 100px;
+   color: white;
+   font-size: 28px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 20px;
+   position: fixed;
+   top: 0;
+   width: 100%;
+    z-index: 1000; 
+}
+
+a {
+   margin-right: 20px;
+   text-decoration: none;
+   color: white;
+}
+
+a:hover {
+   border-bottom: 2px solid red;
+}
+
+#loginBtn {
+   background-color: #181818;
+   color: white;
+   padding: 10px;
+   margin-right: 20px;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+#loginBtn2 {
+   background-color: #181818;
+   color: white;
+   padding: 10px;
+   margin-right: 20px;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.flex-container {
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.flex-item {
+   flex: 1;
+   text-align: center;
+}
+
+.flex-item:first-child {
+   text-align: left;
+}
+
+.flex-item:last-child {
+   text-align: right;
+}
+
+.logo {
+   width: 120px;
+   margin-left: 50px;
+   cursor: pointer;
+}
+
+#cart_icon {
+   width: 100px;
+   height: 30px;
+   cursor: pointer;
+}
+
+#cart_icon path {
+   fill: white;
+}
+
+.cart {
+   position: fixed;
+   top: 100px;
+   right: -400px;
+   width: 400px;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+   transition: right 0.3s ease;
+   z-index: 1000;
+}
+
+.cart hr {
+   border: 2px solid #777;
+   width: 370px;
+   margin: 0 auto;
+}
+
+.cart.show {
+   right: 0; /* 나타남 상태 */
+}
+
+.cart-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 20px;
+   font-size: 25px;
+   font-weight: bolder;
+   color: #fff;
+}
+
+.close-button {
+   background: none;
+   border: none;
+   color: #fff;
+   font-size: 24px;
+   cursor: pointer;
+}
+
+.cart-content {
+   height: 65%;
+}
+
+.price {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 20px;
+   color: #fff;
+   font-size: 25px;
+}
+
+.order {
+   display: block;
+   background-color: #E50914;
+   margin: 0 auto;
+   padding: 15px;
+   color: #fff;
+   font-size: 25px;
+   width: 200px;
+   margin-top: 20px;
+   cursor: pointer;
+}

@@ -1,0 +1,142 @@
+:root {
+   --section-background-color: #f0f0f0;
+   --item-background-color: #ffffff;
+   --item-border-color: #ccc;
+   --caption-color: #333;
+   --table-line-color: #ddd;
+}
+
+html, body {
+   display: block;
+   font-family: 'Helvetica', sans-serif; /* Helvetica 글꼴 적용 */
+   margin: 0; /* 기본 마진 제거 */
+   padding: 0; /* 기본 패딩 제거 */
+}
+
+body {
+   background-color: #f5f5f5;
+}
+
+.title {
+   font-size: 60px;
+   color: white;
+   background-color: black;
+   padding-top: 50px;
+   padding-bottom: 100px;
+   text-align: center; /* 중앙 정렬 */
+}
+
+#wrapper {
+   width: 100%;
+   background-color: black;
+   height: 80%;
+   border: none;
+   margin-top: 100px; /* margin-top으로 위치 조정 */
+   position: relative;
+}
+
+#wrapper #text {
+   color: white;
+   padding: 50px;
+   font-size: 30px;
+   font-weight: 400;
+   text-align: center;
+   width: 100%;
+   margin-bottom: 30px;
+}
+
+.GoodsContainer {
+   display: flex;
+   flex-wrap: wrap;
+   margin-bottom: 30px;
+}
+
+.GoodsBox {
+   background-color: white;
+   width: calc(20%); /* 상자 너비 설정 및 간격 고려 */
+   border: 1px solid silver;
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   color: black;
+   transition: transform 0.1s ease, z-index 0s;
+   position: relative;
+}
+
+.GoodsBox:hover {
+   transform: scaleY(1.05);
+   z-index: 10;
+}
+
+.ExplainBox .category {
+   display: none; /* 기본적으로 카테고리 숨기기 */
+}
+
+.GoodsBox:hover .ExplainBox .category {
+   display: block; /* hover 시 카테고리 보이기 */
+}
+
+.GoodsBox .img {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   overflow: hidden;
+   height: 550px;
+   position: relative;
+}
+
+.GoodsBox .img img {
+   width: 100%;
+   height: 100%;
+   border-bottom: 1px solid var(--item-border-color);
+}
+
+.ExplainBox {
+   color: black;
+   width: 100%;
+   padding: 10px;
+   box-sizing: border-box;   
+   text-align: center;
+   line-height: 1.2; /* 문단의 줄 높이 조정 */
+}
+
+.ExplainBox p {
+   margin: 10px 0; /* 문단 간 간격 설정 */
+   font-size: 14px;
+   font-weight: 650;
+   line-height: 1.2; /* 문단의 줄 높이 조정 */
+}
+
+.buttonContainer {
+   display: none; /* 기본적으로 숨김 */
+   gap: 10px; /* 버튼 간의 간격 */
+   margin-top: 10px;
+   transition: opacity 0.3s ease; /* 부드럽게 나타나게 하기 위한 애니메이션 추가 */
+   justify-content: center; /* 버튼을 수평 중앙에 정렬 */
+   align-items: center; /* 버튼을 수직 중앙에 정렬 */
+}
+
+.buttonContainer.show {
+   padding-top: 5px;
+   display: flex; /* 보이게 할 때의 스타일 */
+   opacity: 1;
+}
+
+input[type="button"].btn {
+   background-color: white;
+   color: black;
+   border: 1px solid black;
+   padding: 10px 20px;
+   cursor: pointer;
+   font-size: 16px;
+   border-radius: 5px;
+   transition: background-color 0.3s ease, color 0.3s ease;
+   line-height: 1; /* 버튼의 줄 높이 조정 */
+}
+
+input[type="button"].btn:hover {
+   background-color: red;
+   color: white;
+}

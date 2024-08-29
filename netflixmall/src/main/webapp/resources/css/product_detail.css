@@ -1,0 +1,142 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Wrapper 스타일 */
+#wrapper {
+    display: flex; /* Flexbox를 사용하여 레이아웃 구성 */
+    flex-direction: row; /* 수평 배치 */
+    width: 100%;
+    margin: 0 auto; /* 중앙 정렬 */
+    margin-top: 5%;
+    background-color: rgba(20, 20, 20, 0.8); /* 어두운 배경색 */
+    border-radius: 15px; /* 둥근 모서리 */
+    color: white; /* 텍스트 색상 */
+    text-align: center;
+}
+
+/* Right side styling */
+.right-side {
+    flex: 2.5;
+    padding: 30px 20px;
+    background-color: #111;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text {
+	padding:50px;
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    align-items: flex-start;
+
+}
+
+.price {
+    font-size: 1.2rem;
+    color: #e50914;
+    margin-bottom: 15px;
+    align-items: flex-start;
+}
+
+.description-box {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #ccc;
+    align-self: flex-start; /* Align text to the left */
+}
+
+.description-box p {
+    margin: 0;
+}
+
+form {
+    width: 100%;
+    align-items: center; /* Center form contents */
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+    text-align: center; /* Center the number input text */
+    
+}
+
+.cart_button {
+    padding: 10px 20px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.cart_button:hover {
+    background-color: #c8102e;
+}
+
+/* 왼쪽 영역 스타일 */
+.left-side {
+    flex: 7.5; /* 왼쪽 영역 비율 */
+    padding: 20px; /* 여백 추가 */
+}
+
+/* 이미지 박스 스타일 */
+.imgbox {
+    display: grid; /* Grid 레이아웃 사용 */
+    grid-template-columns: repeat(2, 1fr); /* 두 열 레이아웃 */
+    width: 100%;
+}
+
+/* 이미지 스타일 */
+.imgbox img {
+    width: 100%; /* 이미지 너비 100% */
+    height: 900px; /* 이미지 높이 */
+    object-fit: cover; /* 이미지 비율 유지 */
+}
+
+/* 미디어 쿼리: 화면 크기가 1200px 이하일 때 */
+@media (max-width: 1200px) {
+    .imgbox {
+        grid-template-columns: repeat(2, 1fr); /* 두 열 레이아웃 유지 */
+    }
+}
+
+/* 미디어 쿼리: 화면 크기가 900px 이하일 때 */
+@media (max-width: 900px) {
+    #wrapper {
+        flex-direction: column; /* 세로 레이아웃으로 변경 */
+    }
+    .left-side, .right-side {
+        padding: 10px; /* 여백 조정 */
+    }
+    .imgbox {
+        grid-template-columns: 1fr; /* 한 열 레이아웃 */
+    }
+    .imgbox img {
+        height: 300px; /* 이미지 높이 조정 */
+    }
+}
+
+/* 미디어 쿼리: 화면 크기가 600px 이하일 때 */
+@media (max-width: 600px) {
+    .right-side label, .right-side input, .right-side textarea {
+        width: 100%; /* 입력 필드와 텍스트 영역의 너비를 100%로 설정 */
+    }
+}

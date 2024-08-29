@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="oi">
+	<select id="order_list" parameterType="int" resultType="vo.OrderItemVO">
+        SELECT * FROM order_items
+    </select>
+    
+    <update id="insert_order_items" parameterType="java.util.Map">
+		INSERT INTO order_items (idx, o_idx, p_idx, quantity, price)
+		SELECT
+			seq_order_item_idx.NEXTVAL,
+			#{o_idx},
+			c.p_idx,
+			c.quantity,
+			p.price
+		FROM
+			cart c
+		JOIN
+			products p ON c.p_idx = p.p_idx
+		WHERE
+			c.user_id = #{u_idx}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

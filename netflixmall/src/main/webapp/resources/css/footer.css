@@ -1,0 +1,108 @@
+html, body {
+    height: 100%; /* 전체 화면 높이를 사용 */
+    margin: 0; /* 기본 마진 제거 */
+    padding: 0; /* 기본 패딩 제거 */
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 200;
+    display: flex;
+    flex-direction: column; /* 본문과 footer를 세로로 배치 */
+}
+
+body {
+    background-color: black; /* 배경색을 검정으로 설정 */
+    display: flex;
+    flex-direction: column; /* 본문과 footer를 세로로 배치 */
+    margin: 0; /* 기본 마진 제거 */
+    padding: 0; /* 기본 패딩 제거 */
+}
+
+#wrapper {
+    flex: 1; /* 남은 공간을 모두 차지하도록 설정 */
+}
+
+footer {
+    background-color: black; /* 푸터 배경색 검정으로 설정 */
+    color: white; /* 푸터 글자색을 흰색으로 설정 */
+    padding: 20px; /* 푸터 안쪽 여백 설정 */
+    box-sizing: border-box; /* 여백과 테두리를 포함한 너비 및 높이 계산 */
+    width: 90%; /* 푸터 너비를 90%로 설정 */
+    margin: 0 auto; /* 수평 중앙 정렬 */
+    position: relative; /* 상대 위치로 설정 */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 100px; /* 최소 너비 설정 */
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 1.6em;
+    line-height: 1.2em; /* 제목의 줄 높이 설정 */
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+    color: grey;
+    line-height: 1.2em; /* 리스트 항목의 줄 높이 설정 */
+}
+
+.footer-section ul li a {
+    color: grey; /* 링크 색상 */
+    text-decoration: none; /* 기본 밑줄 제거 */
+    position: relative; /* 호버 시 추가된 빨간 줄을 절대 위치로 설정하기 위해 */
+}
+
+.footer-section ul li a::after {
+    content: ""; /* 빨간 줄을 추가하기 위한 가상 요소 */
+    display: block;
+    width: 100%; /* 링크 전체 너비 */
+    height: 2px; /* 줄의 두께 */
+    background-color: red; /* 빨간 줄 색상 */
+    position: absolute; /* 절대 위치로 설정 */
+    bottom: -2px; /* 텍스트 바로 아래에 줄을 위치시키기 위해 설정 */
+    left: 0; /* 왼쪽에 정렬 */
+    transform: scaleX(0); /* 기본적으로 줄이 보이지 않도록 설정 */
+    transition: transform 0.3s ease; /* 부드러운 애니메이션 효과 */
+}
+
+.footer-section ul li a:hover::after {
+    transform: scaleX(1); /* 호버 시 빨간 줄이 나타나도록 설정 */
+}
+
+.footer-section ul li a:hover {
+    color: grey; /* 호버 시 링크 색상 유지 */
+}
+
+.footer-section button {
+    background-color: #e50914;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.footer-section button:hover {
+    background-color: #b81d13;
+}
+
+hr.line {
+    border: none;
+    background-color: red;
+    height: 4px; /* 줄의 두께 설정 */
+}

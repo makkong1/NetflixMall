@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+		<setting name="jdbcTypeForNull" value="VARCHAR"/>
+	</settings>
+	
+	<typeAliases>
+		 <typeAlias type="vo.AdminVO" alias="admin"/>
+		 <typeAlias type="vo.UsersVO" alias="users"/>
+		 <typeAlias type="vo.ProductVO" alias="product"/>
+		 <typeAlias type="vo.CartVO" alias="cart"/>
+		 <typeAlias type="vo.OrderVO" alias="order"/>
+		 <typeAlias type="vo.OrderItemVO" alias="oderItem"/>
+		 <typeAlias type="vo.BoardVO" alias="board"/>
+		 <typeAlias type="vo.CommentVO" alias="comm"/>
+		 <typeAlias type="vo.QuestionVO" alias="quest"/>
+	</typeAliases>
+	
+	
+	<mappers>
+		<mapper resource="config/mybatis/mapper/admin.xml" />
+		<mapper resource="config/mybatis/mapper/user.xml" />
+		<mapper resource="config/mybatis/mapper/order.xml" />
+		<mapper resource="config/mybatis/mapper/orderItem.xml" />
+		<mapper resource="config/mybatis/mapper/cart.xml" />
+		<mapper resource="config/mybatis/mapper/product.xml" /> 
+		<mapper resource="config/mybatis/mapper/board.xml" /> 
+		<mapper resource="config/mybatis/mapper/comment.xml" /> 
+		<mapper resource="config/mybatis/mapper/question.xml" /> 
+	</mappers>
+</configuration>

@@ -1,0 +1,190 @@
+.container {
+	z-index: 1; /* z-index 값을 양수로 변경 */
+	position: relative; /* fixed 대신 relative 사용 */
+	margin-top: 100px;
+	background-color: #D3D3D3;
+	width: 100%;
+	height: 100%;
+}
+
+.title {
+	margin: 0 auto;
+	padding-top: 50px;
+	font-size: 40px;
+	text-align: center;
+	color: #555;
+	font-size: 40px;
+}
+
+.q-title:hover {
+	cursor: pointer;
+	color: #146EBE;
+}
+
+.info {
+	margin: 0 auto;
+	padding: 20px;
+	font-size: 20px;
+	text-align: center;
+	color: #555;
+}
+
+.table {
+	margin: 50px auto;
+	width: 1000px;
+}
+
+.table, th, td {
+	border: none; /* 모든 테두리를 없앰 */
+	color: black;
+}
+
+.table th {
+	border-top: 4px solid #555;
+}
+
+.table th, td {
+	padding: 15px;
+	text-align: center;
+	border-bottom: 1px solid #eee; /* 가로줄만 남김 */
+}
+
+.floor {
+	width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.search-box {
+	position: relative;
+	display: flex;
+	width: 100%;
+	max-width: 200px; /* 원하는 너비로 설정 */
+}
+
+.search-box input[type="text"] {
+	flex: 1;
+	padding: 10px 20px 10px 40px; /* 왼쪽 여백을 추가하여 아이콘 공간 확보 */
+	border-bottom: 1px solid #555;
+	cursor: pointer;
+}
+
+.search-box #search {
+	flex: 1;
+	display: inline;
+	border-bottom: 1px solid #555;
+	cursor: pointer;
+}
+
+
+.search-box .search-icon {
+	position: absolute;
+	left: 110px; /* 아이콘의 위치를 조정 */
+	top: 50%;
+	transform: translateY(-50%);
+	/* top: 50%;, transform: translateY(-50%); 요소의 중심을 부모 요소의 수직 중심에 정확히 맞춤 */
+	fill: #555; /* 아이콘 색상 */
+}
+
+.search-box .search-btn {
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-left: 10px;
+}
+
+.floor .qna-btn {
+	padding: 10px;
+	border: 1px solid #555;
+	cursor: pointer;
+	width: 75px;
+}
+
+.floor input[type="button"]:hover {
+	background-color: #555;
+	color: white;
+}
+
+#writeForm {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto; /* 요소의 내용이 넘칠 때 스크롤바를 표시하도록 설정 */
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+#writeForm .content {
+	background-color: #161616;
+	color: white;
+	margin: 10% auto; /* 중앙에 배치 */
+	padding: 40px;
+	border: 1px solid #888;
+	width: 80%;
+	height: 600px;
+	max-width: 700px; /* 최대 너비 */
+	border-radius: 10px; /* 모서리 둥글게 */
+	position: relative;
+	max-width: 700px; /* 자식 요소의 절대 위치 기준 */
+}
+
+.content .write-input, .content .ta, .content .write-table td {
+	border: none; /* 테두리 제거 */
+	padding: 10px;
+	color: white;
+	width: 350px;
+	font-size: 20px;
+	background-color: #161616; /* 배경색을 팝업 창 배경색과 일치 */
+}
+
+.content .write-input, .content .ta {
+	border: 1px solid #888;
+}
+
+.content .write-table {
+	margin: 0 auto;
+}
+
+.write-table th {
+	vertical-align: middle; /* 수직 중앙 정렬 */
+	background-color: #161616; /* 배경색을 팝업 창 배경색과 일치 */
+	color: white; /* 글자 색상을 배경색과 일치 */
+}
+
+.close {
+	color: #aaa;
+	font-size: 30px;
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.btn {
+	position: absolute;
+	top: 110%;
+	left: 80%;
+	width: 100px;
+	border: 1px solid #888;
+	color: white;
+	padding: 10px;
+	margin-top: 15px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.btn:hover {
+	color: #146EBE;
+}
+
+.delete-tr td {
+	color: #555
+}
+

@@ -1,0 +1,42 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0; /* 추가 */
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination a, .pagination span {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s; /* 클릭 시 부드러운 효과 */
+}
+
+.pagination a:hover, .pagination a:focus {
+    background-color: #f8f9fa;
+    color: #007bff; /* 호버 시 색상 변경 */
+    border: 1px solid #ddd; /* 호버 시 테두리 유지 */
+}
+
+.pagination .active span {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.pagination .disabled span {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination a {
+    outline: none; /* 클릭 시 외곽선 제거 */
+}

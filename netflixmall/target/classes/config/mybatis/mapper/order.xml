@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="o">
+	<!-- 주문 상세보기 -->
+	<select id="order_list" resultType="order">
+		SELECT
+		    o.o_idx,          -- 주문번호
+		    u.username,       -- 주문한 사람
+		    p.name,           -- 주문한 물품
+		    oi.quantity,      -- 수량
+		    oi.price,         -- 단가
+		    (oi.quantity * oi.price) AS total_price, -- 총가격
+		    o.status,         -- 주문상태
+		    o.order_date      -- 주문시간
+		FROM
+		    orders o
+		JOIN
+		    users u ON o.u_idx = u.u_idx
+		JOIN
+		    order_items oi ON o.o_idx = oi.o_idx
+		JOIN
+		    products p ON oi.p_idx = p.p_idx
+		ORDER BY
+		    o.order_date DESC
+	</select>
+	
+	<!-- 주문 검색 상세보기 -->
+	<select id="order_search_list" parameterType="string" resultType="order">
+		SELECT
+		    o.o_idx,          -- 주문번호
+		    u.username,       -- 주문한 사람
+		    p.name,           -- 주문한 물품
+		    oi.quantity,      -- 수량
+		    oi.price,         -- 단가
+		    (oi.quantity * oi.price) AS total_price, -- 총가격
+		    o.status,         -- 주문상태
+		    o.order_date      -- 주문시간
+		FROM
+		    orders o
+		JOIN
+		    users u ON o.u_idx = u.u_idx
+		JOIN
+		    order_items oi ON o.o_idx = oi.o_idx
+		JOIN
+		    products p ON oi.p_idx = p.p_idx
+		WHERE 
+			u.username = #{username}
+		ORDER BY
+		    o.order_date DESC
+	</select>
+	
+	
+	<insert id="insert_order" parameterType="order" > 
+		INSERT INTO orders (o_idx, u_idx, total, order_date) 
+		VALUES (seq_order_idx.nextVAL, #{u_idx}, #{total}, sysdate) 
+	</insert>
+	
+	<!-- 결제후 넣는거 -->
+	<select id="order_insert_idx" parameterType="int" resultType="order">
+		SELECT o_idx 
+	    FROM (
+	        SELECT o_idx 
+	        FROM orders 
+	        WHERE u_idx = #{u_idx}
+	        ORDER BY order_date DESC
+	    )
+	    WHERE ROWNUM = 1
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="p">
+
+	<select id="product_list" resultType="vo.ProductVO">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT p.*, ROWNUM as rnum
+				FROM (
+					SELECT * FROM products
+					WHERE block_reason IS NULL
+					ORDER BY registered_at DESC
+				) p
+			WHERE ROWNUM <= 20
+			)
+			WHERE rnum >= 1
+		]]>
+	</select>
+	
+	<!-- 박영범 / 제품 목록 조회 (최신 등록 순으로 5개, 블락 사유가 없는 제품만 포함) 관리자 메인페이지에서 필요 -->
+	<select id="a_product_list" resultType="vo.ProductVO">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT p.*, ROWNUM as rnum
+				FROM (
+					SELECT * FROM products
+					WHERE block_reason IS NULL
+					ORDER BY registered_at DESC
+				) p
+			WHERE ROWNUM <= 5
+			)
+			WHERE rnum >= 1
+		]]>
+	</select>
+
+	<!-- 박영범 / 제품블락처리 -->
+	<update id="product_block" parameterType="java.util.Map">
+		update products
+		set block_reason = #{blockReason}
+		where p_idx = #{p_idx}
+	</update>
+
+	<!-- 박영범 / 제품 블락 취소 -->
+	<update id="product_unblock" parameterType="int">
+		UPDATE products
+		SET block_reason = NULL
+		WHERE p_idx = #{p_idx}
+	</update>
+	
+	<!-- 박영범 -->
+	<select id="product_detail_list" resultType="vo.ProductVO">
+		SELECT * FROM
+		products
+		ORDER BY P_IDX DESC
+	</select> 
+
+	<!-- 박영범 -->
+	<select id="product_search_detail_list" parameterType="string"
+		resultType="vo.ProductVO">
+		SELECT * FROM products
+		WHERE name LIKE '%'|| #{product_name} ||'%'
+		ORDER BY P_IDX DESC
+	</select>
+	
+	<!-- 박영범 -->
+	<select id="seller_product" parameterType="int" resultType="vo.ProductVO">
+		SELECT * FROM products 
+		WHERE user_idx = #{user_idx} and block_reason IS NULL
+	</select>	
+
+	<!-- insert문에는 where절을 못쓴다고 gpt설명해줌 vo에있는 user_idx를 가져옴 유저테이블의 u_idx 외래키 -->
+	<insert id="product_insert" parameterType="vo.ProductVO">
+	    INSERT INTO products
+	    (P_IDX, NAME, DESCRIPTION, PRICE, STOCK, CATEGORY,
+	    IS_SELLABLE, FILENAME1, FILENAME2, FILENAME3, FILENAME4, FILENAME5, FILENAME6, USER_IDX)
+	    VALUES (SEQ_PRODUCT_IDX.nextVal, 
+	    #{name, jdbcType=VARCHAR},
+	    #{description, jdbcType=VARCHAR},
+	    #{price, jdbcType=INTEGER},
+	    #{stock, jdbcType=INTEGER},
+	    #{category, jdbcType=VARCHAR},
+	    #{is_sellable, jdbcType=INTEGER},
+	    #{filename1, jdbcType=VARCHAR},
+	    #{filename2, jdbcType=VARCHAR},
+	    #{filename3, jdbcType=VARCHAR},
+	    #{filename4, jdbcType=VARCHAR},
+	    #{filename5, jdbcType=VARCHAR},
+	    #{filename6, jdbcType=VARCHAR},
+	    #{user_idx, jdbcType=INTEGER})
+	</insert>
+
+	<delete id="product_delete">
+		DELETE FROM products WHERE P_IDX = #{P_IDX}
+	</delete>
+
+	<select id="product_selectone" resultType="vo.ProductVO">
+		SELECT * FROM products
+		WHERE P_IDX = #{P_IDX}
+	</select>
+
+	<update id="product_update" parameterType="java.util.Map">
+		UPDATE products
+		SET
+		name = #{vo.name, jdbcType=VARCHAR},
+		description
+		=#{vo.description,jdbcType=VARCHAR},
+		price = #{vo.price,
+		jdbcType=INTEGER},
+		stock =#{vo.stock, jdbcType=INTEGER},
+		category =
+		#{vo.category,jdbcType=VARCHAR},
+
+		filename1= #{filename1,
+		jdbcType=VARCHAR},
+		filename2= #{filename2, jdbcType=VARCHAR},
+		filename3= #{filename3, jdbcType=VARCHAR},
+		filename4= #{filename4,
+		jdbcType=VARCHAR},
+		filename5= #{filename5, jdbcType=VARCHAR},
+		filename6= #{filename6, jdbcType=VARCHAR}
+
+		WHERE p_idx =#{P_IDX}
+
+	</update>
+
+	<select id="product_details" resultType="vo.ProductVO">
+		SELECT * FROM products
+		WHERE P_IDX = #{P_IDX}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+

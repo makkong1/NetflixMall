@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+body {
+        	min-height: 400px;
+            padding-top: 120px; /* 헤더 높이만큼 패딩 추가 */
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* 배경색 추가 */
+        }
+
+        table {
+        	padding: 30px;
+            margin: 20px;
+            border-collapse: collapse; /* 테이블 셀 경계를 합침 */
+            width: 100%; /* 테이블 너비 설정 */
+            background-color: #fff; /* 테이블 배경색 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            align: center;
+        }
+
+        th, td {
+            padding: 10px; /* 셀 안 여백 설정 */
+            border: 1px solid black; /* 테이블 셀 경계선 설정 */
+            text-align: center; /* 셀 안 텍스트 가운데 정렬 */
+            padding: 15px;
+        }
+
+        th {
+            background-color: #4CAF50; /* 헤더 배경색 */
+            color: white; /* 헤더 텍스트 색상 */
+        }
+
+        td {
+            background-color: #f9f9f9; /* 셀 배경색 */
+        }
+        
+        
+.blocked-user {
+    color: red; /* 텍스트 색상 */
+}
+        

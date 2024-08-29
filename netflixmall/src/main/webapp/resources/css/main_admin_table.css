@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+/* 전역 변수 정의 */
+:root {
+    --section-background-color: #f0f0f0;
+    --item-background-color: #ffffff;
+    --item-border-color: #ccc;
+    --caption-color: #333;
+    --table-line-color: #ddd;
+}
+
+/* 섹션 스타일 */
+section {
+    margin-top: 100px; /* 상단 여백을 100px로 설정 */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.item {
+    background-color: #D3D3D3;
+    border: 1px solid var(--item-border-color);
+    padding: 5px 10px;
+    height: 300px;
+    margin: 30px;
+}
+
+
+.item .item-caption {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--table-line-color);
+    margin-bottom: 15px;
+    color: var(--caption-color);
+}
+
+.item .item-caption .item-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.item .item-caption .more {
+    cursor: pointer;
+}
+
+.item1 {
+    background-color: #D3D3D3;
+    border: 1px solid var(--item-border-color);
+    padding: 5px 10px;
+    height: 300px;
+    margin: 30px;
+    margin-top: 120px;
+}
+
+.item1 .item-caption {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--table-line-color);
+    margin-bottom: 15px;
+    color: var(--caption-color);
+}
+
+.item1 .item-caption .item-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.item1 .item-caption .more {
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-top: 1px solid var(--table-line-color);
+    border-collapse: collapse;
+    font-size: 14px;
+    color: black;
+}
+
+tr {
+    border-top: 1px solid var(--table-line-color);
+}
+
+th, td {
+    padding: 10px 0;
+    text-align: center;
+}
+
+th {
+    border-bottom: 2px solid var(--table-line-color);
+}
+
+.num-visitors .item-content {
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.num-visitors .item-content div:first-child {
+    padding: 0;
+    font-size: 100px;
+}
+
+.num-visitors .item-content div:last-child {
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+
+.recent-item table {
+    table-layout: fixed;
+}
+
+.recent-item table td {
+    padding: 5px 5px;
+}
+
+.recent-item table .goods-img img {
+    display: inline-block;
+    width: 40px;
+}
+
+/* 사용자 블락처리 글씨 색상 */
+.blocked-user {
+    color: red; /* 텍스트 색상 */
+}
+
+.block_btn {
+    cursor: pointer;
+}
+.apply_btn {
+    cursor: pointer;
+}
+
+.user_list_item_title {
+    margin: 0 auto;
+}
+
+/* 제품 블락처리 글씨 색상 */
+.blocked-product {
+    color: red; /* 텍스트 색상 */
+}
+
+
+/* 유저 디테일 테이블 */
+#user_detail_table {
+    padding: 30px;
+    border-collapse: collapse; /* 테이블 셀 경계를 합침 */
+    width: 100%; /* 테이블 너비 설정 */
+    background-color: #D3D3D3; /* 테이블 배경색 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.select {
+    text-align: right;
+    margin: 0 auto;
+    margin-top: 150px;
+    max-width: 1500px;	
+    background: #D3D3D3;
+}
+
+.select1 {
+    text-align: right;
+    margin: 0 auto;
+    margin-top: 150px;
+    max-width: 85%;	
+    background: #D3D3D3;
+}
+.select  input, button, select{
+	margin: 10px;
+}
+
+button {
+    cursor: pointer;
+}
+
+th, td {
+    padding: 10px 0;
+    vertical-align: middle; /* 수직 중앙 정렬 */
+}
+

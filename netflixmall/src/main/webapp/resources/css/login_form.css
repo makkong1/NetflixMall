@@ -1,0 +1,218 @@
+
+#wrapper {
+	margin: 200px auto 0;
+	width: 700px;
+	height: auto;
+	background-color: rgba(20, 20, 20, 0.8);
+	border-radius: 30px;
+}
+
+#wrapper #text {
+	color: white;
+	padding: 100px;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: center;
+	width: 600px;
+	margin: 0 auto;
+	line-height: 60px;
+}
+
+#pick {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+}
+
+
+
+#pick span {
+	flex:1;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bolder;
+	color: white;
+	padding: 10px;
+	border-bottom: 2px solid gray;
+	cursor: pointer;
+}
+
+#wrapper .container {
+	margin-top: 30px;
+	display: flex;
+    flex-direction: column; /* 자식 요소를 세로로 배치 */
+    align-items: center; /* 자식 요소를 수직 중앙에 배치 */
+    justify-content: center;
+}
+
+#wrapper .container input {
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	border-radius: 15px;
+	margin-bottom: 20px;
+	font-size: 22px;
+	color: white;
+}
+
+#wrapper .container input:focus {
+	border-color: #E50914;
+	outline: none;
+}
+
+#msg {
+	color: #E50914;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+#wrapper .container .addr_pwd_email_container {
+	display: flex;
+	align-items: center;
+	width: 80%;
+	margin-bottom: 10px;
+}
+
+#wrapper .container .addr_pwd_email_container input[type="text"] {
+	flex: 1;
+	padding: 20px;
+	border: 1px solid #888;
+	border-radius: 15px;
+	font-size: 22px;
+}
+
+#wrapper .container .addr_pwd_email_container input[type="text"]:focus {
+	border-color: #E50914;
+	outline: none;
+}
+
+#wrapper .container .addr_pwd_email_container input[type="button"] {
+	width: 120px;
+	padding: 15px;
+	border: none;
+	border-radius:15px;
+	font-size: 22px;
+	background-color: #E50914;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	margin-left: 10px;
+}
+
+#wrapper .container input:hover {
+	background-color: #2F2F2F;
+}
+
+#wrapper .container .btn {
+	width: 40%;
+	background-color: #E50914;
+	border: none;
+	color: white;
+	font-size: 24px;
+	font-weight: bolder;
+	cursor: pointer;
+	margin: 50px 0;
+}
+#wrapper .container .btn:hover {
+	background-color: #7C020D;
+}
+
+.hidden {
+	/* 요소를 보이지 않게 함 */
+    visibility: hidden;
+    /* 요소를 레이아웃에서 제거함 */
+    position: absolute;
+}
+
+#login_container p {
+	color: white;
+	cursor: pointer;
+	width: 100%;
+	padding-left: 75px;
+	font-size: 22px;
+}
+
+#forgotPwdPopup {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto; /* 요소의 내용이 넘칠 때 스크롤바를 표시하도록 설정 */
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popupContent {
+	background-color: #161616;
+	color: white;
+	margin: 10% auto; /* 중앙에 배치 */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 560px; /* 최대 너비 */
+	max-height: 500px;
+	border-radius: 10px; /* 모서리 둥글게 */
+	position: relative; /* 자식 요소의 절대 위치 기준 */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.text {
+	font-size: 35px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+.content {
+	font-size: 20px;
+	font-weight: bolder;
+	margin-bottom: 30px;
+}
+
+.close {
+	color: #aaa;
+	font-size: 24px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	cursor: pointer;
+}
+
+.email_input {
+	border: 1px solid #888;
+	padding: 10px;
+	margin-bottom: 30px;
+	color: white;
+	width: 400px;
+}
+
+.email_input:hover {
+	background-color: #2F2F2F;
+}
+
+.sendBtn {
+	display: block;
+	background-color: #E50914;
+	padding: 10px;
+	border-radius: 10px;
+	margin: 0 auto;
+	cursor: pointer;
+	color: white;
+	width: 100px;
+	font-weight: bolder;
+}
+
+.role_selection{
+	display: flex;
+	justify-content: center; /* 수직 정렬 */
+	 align-items: center; /* 수직 가운데 정렬 */
+	color: white;
+}
+
+.role_selection input[type="radio"] {
+    margin-right: 10px; /* 라디오 버튼과 라벨 사이의 간격 조정 */
+}

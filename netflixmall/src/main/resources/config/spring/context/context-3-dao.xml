@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="member_daoBean" class="dao.MemberDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>
+		
+	<bean id="admin_daoBean" class="dao.AdminDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>	     
+	 
+	<bean id="cart_daoBean" class="dao.CartDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>
+	
+	<bean id="products_daoBean" class="dao.ProductDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>
+	
+	<bean id="orderItem_daoBean" class="dao.OrderItemDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>
+	
+	<bean id="order_daoBean" class="dao.OrderDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>
+	
+	<bean id="users_daoBean" class="dao.UsersDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>
+	
+	<bean id="board_daoBean" class="dao.BoardDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>
+		
+	<bean id="comment_daoBean" class="dao.CommentDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>	
+	
+	<bean id="question_daoBean" class="dao.QuestionDAO">
+		<constructor-arg ref="sqlSessionBean"/>
+	</bean>		
+		
+		
+</beans>

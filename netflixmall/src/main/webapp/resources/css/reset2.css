@@ -1,0 +1,84 @@
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML5 요소를 블록 요소로 설정 */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+/* 리스트 스타일 초기화 */
+ul, ol {
+    list-style: none;
+}
+
+/* 링크 스타일 초기화 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* HTML5 요소를 블록 요소로 설정 */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* 기본 HTML 요소의 스타일 초기화 */
+body {
+    line-height: 1;
+    background-color: #2F2F2F;
+    min-height: 2000px;
+}
+
+/* 테이블 요소 스타일 초기화 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 링크 상태별 스타일 초기화 */
+a:link, a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 입력 요소 스타일 초기화 */
+input, button, textarea, select {
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+/* 이미지 최대 너비 설정 */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 상속받지 않는 기본 스타일 초기화 */
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}

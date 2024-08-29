@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="q">
+	<select id="question_list" resultType="quest"
+		parameterType="java.util.Map">
+		select * from (
+		select rank() over(order by q_id desc)
+		no, q.* from (
+		select * from questions
+		<trim prefix="where" prefixOverrides="or|and">
+			<if test="title!=null">
+				<!-- del_info != -1를 통해 삭제된 게시글은 검색하지않음 -->
+				title like '%'||#{title}||'%' and del_info != -1
+			</if>
+
+			<if test="content!=null">
+				or content like '%'||#{content}||'%' and del_info != -1
+			</if>
+		</trim>
+		) q )
+		where no BETWEEN #{start} and #{end}
+	</select>
+
+	<insert id="insert_question" parameterType="quest">
+		insert into questions
+		values(
+		seq_q_id.nextVal,
+		#{email},
+		#{pwd},
+		#{title},
+		#{content},
+		#{ip},
+		0,
+		sysdate,
+		0
+		)
+	</insert>
+
+	<select id="select_one" resultType="quest" parameterType="int">
+		select
+		* from questions where q_id = #{q_id}
+	</select>
+
+	<update id="increase_view" parameterType="int">
+		update questions set
+		views = views + 1 where q_id = #{q_id}
+	</update>
+
+	<update id="delete_question" parameterType="int">
+		update questions set
+		del_info = -1 where q_id = #{q_id}
+	</update>
+
+	<update id="update_question" parameterType="quest">
+		update questions set
+		title = #{title}, content = #{content} where q_id = #{q_id}
+	</update>
+
+	<select id="rowTotal" resultType="int"
+		parameterType="java.util.Map">
+		select COUNT(*) from questions
+		<!-- myBatis 동적쿼리 : 상황에 따라 동적인 SQL문장이 실행될 수 있도록 하는 기능 -->
+
+		<!-- prefix 쿼리를 붙여서 출발 -->
+		<!-- where or, where and와 같이 문법적으로 사용불가한 or, and로 시작되는 상황일 때 이를 제거해주는 속성이 
+			prefixOverrides다 -->
+		<trim prefix="where" prefixOverrides="or|and">
+			<if test="title != null">
+				<!-- del_info != -1를 통해 삭제된 게시글은 검색하지않음 -->
+				title like '%'||#{title}||'%' and del_info != -1
+			</if>
+
+			<if test="content != null">
+				or content like '%'||#{content}||'%' and del_info != -1
+			</if>
+		</trim>
+	</select>
+</mapper>
+
+
+
+
+
+

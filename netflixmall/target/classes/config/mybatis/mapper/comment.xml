@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="c">
+	<insert id="insert_comm" parameterType="comm">
+		insert into comments values(
+			seq_c_idx.nextVal,
+			#{q_id},
+			#{nickname},
+			#{email},
+			#{content},
+			#{ip},
+			sysdate,
+			seq_c_idx.currVal,
+			0,
+			0
+		)
+	</insert>
+	
+	<select id="comm_list" parameterType="int" resultType="comm">
+		select * from ( select rank() over(order by ref desc, step ) no, c.* from comments c )
+where q_id = #{q_id}
+	</select>
+	
+	<select id="select_one" parameterType="int" resultType="comm">
+		select * from comments where c_idx = #{c_idx}
+	</select>
+	
+	<!-- 댓글 추가 전 자리확보 -->
+	<update id="comm_update_step" parameterType="comm">
+		update comments set step = step + 1 where ref = #{ref} and step > #{step}
+	</update>
+	
+	<insert id="comm_reply" parameterType="comm">
+		insert into comments values(
+			seq_c_idx.nextVal,
+			#{q_id},
+			#{nickname},
+			#{email},
+			#{content},
+			#{ip},
+			sysdate,
+			#{ref},
+			#{step},
+			#{depth}
+		)
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
