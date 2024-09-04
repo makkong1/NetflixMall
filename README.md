@@ -40,6 +40,6 @@ Spring으로 만든 넷플릭스 쇼핑몰
 - Spring, Mybatis
 
 **DB**
-- Oracle
+- Oracle 11g
 
   
